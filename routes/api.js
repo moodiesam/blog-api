@@ -14,9 +14,10 @@ const {protect} = require("../public/middleware/authMiddleware")
 
 // CRUD for posts
 
-router.get('/', post_controller.read_post)
+router.get('/', post_controller.read_posts)
 router.post('/', protect, post_controller.create_post)
-router.put('/:id', post_controller.update_post)
-router.delete('/:id', post_controller.delete_post)
+router.get('/:id', post_controller.get_post)
+router.put('/:id', protect, post_controller.update_post)
+router.delete('/:id', protect, post_controller.delete_post)
 
 module.exports = router
