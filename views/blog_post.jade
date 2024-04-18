@@ -1,0 +1,14 @@
+extends layout 
+
+block content 
+    h1= post.title
+
+    p= post.text
+
+    if comments.length 
+        ul 
+            each comment in comments 
+                li 
+                    p= comment.author.username
+                    p= comment.comment 
+                hr
